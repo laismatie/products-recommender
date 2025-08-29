@@ -36,4 +36,5 @@ const getRecommendations = (
   }
 };
 
-export default { getRecommendations };
+const recommendationService = { getRecommendations };
+export default recommendationService;
