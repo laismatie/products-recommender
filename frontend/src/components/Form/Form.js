@@ -1,30 +1,24 @@
 // Form.js
-// eslint-disable-next-line
-import React, { useEffect } from 'react';
 import { Preferences, Features, RecommendationType } from './Fields';
 import { SubmitButton } from './SubmitButton';
 import useProducts from '../../hooks/useProducts';
 import useForm from '../../hooks/useForm';
 import useRecommendations from '../../hooks/useRecommendations';
 
-function Form() {
+function Form({ onUpdateRecommendations }) {
   const { preferences, features, products } = useProducts();
   const { formData, handleChange } = useForm({
     selectedPreferences: [],
     selectedFeatures: [],
     selectedRecommendationType: '',
   });
-  // eslint-disable-next-line
-  const { getRecommendations, recommendations } = useRecommendations(products);
+
+  const { getRecommendations } = useRecommendations(products);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // eslint-disable-next-line
     const dataRecommendations = getRecommendations(formData);
-
-    /**
-     * Defina aqui a lógica para atualizar as recomendações e passar para a lista de recomendações
-     */
+    onUpdateRecommendations(dataRecommendations);
   };
 
   return (

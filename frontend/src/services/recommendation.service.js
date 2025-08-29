@@ -1,13 +1,13 @@
 // getRecommendations.js
 const getRecommendations = (
-  // eslint-disable-next-line
-  formData = { selectedPreferences: [], selectedFeatures: [] },
+  formData = { selectedPreferences: [], selectedFeatures: [], selectedRecommendationType: '' },
   products
 ) => {
+  if (!products || products.length === 0) return [];
   /**
    * Crie aqui a lógica para retornar os produtos recomendados.
   */
+ return [];
 };
 
-// eslint-disable-next-line
 export default { getRecommendations };

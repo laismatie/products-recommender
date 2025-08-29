@@ -3,12 +3,11 @@ import Form from './components/Form/Form';
 import RecommendationList from './components/RecommendationList/RecommendationList';
 
 function App() {
-  // eslint-disable-next-line
   const [recommendations, setRecommendations ] = useState([])
 
-  /**
-   * Dadas atualizações no formulário, necessário atualizar a lista de recomendações
-   */
+  const handleRecommendations = (newRecommendations) => {
+    setRecommendations(newRecommendations);
+  };
 
   return (
     <div className="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
@@ -20,7 +19,7 @@ function App() {
           </p>
         </div>
         <div>
-          <Form />
+          <Form onUpdateRecommendations={handleRecommendations}/>
         </div>
         <div>
           <RecommendationList recommendations={recommendations} />
