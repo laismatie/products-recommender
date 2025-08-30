@@ -87,10 +87,25 @@ describe('recommendationService', () => {
       selectedFeatures: [],
       selectedRecommendationType: 'MultipleProducts',
     };
+
     const recommendations = recommendationService.getRecommendations(
       formData, 
       mockProducts
     );
     expect(recommendations).toHaveLength(mockProducts.length);
+  });
+
+  test('Retorna array vazio se não houver match', () => {
+    const formData = {
+      selectedPreferences: ['Preferência Inexistente'],
+      selectedFeatures: ['Feature Inexistente'],
+      selectedRecommendationType: 'MultipleProducts',
+    };
+    
+    const recommendations = recommendationService.getRecommendations(
+      formData, 
+      mockProducts
+    );
+    expect(recommendations).toEqual([]);
   });
 });
