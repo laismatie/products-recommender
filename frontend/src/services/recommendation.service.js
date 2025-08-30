@@ -1,4 +1,19 @@
-// getRecommendations.js
+function matchPreferences(product, selectedPreferences) {
+  const productPreferences = product.preferences || [];
+  return (
+    selectedPreferences.length === 0 ||
+    selectedPreferences.some(preferences => productPreferences.includes(preferences))
+  );
+}
+
+function matchFeatures(product, selectedFeatures) {
+  const productFeatures = product.features || [];
+  return (
+    selectedFeatures.length === 0 ||
+    selectedFeatures.some(features => productFeatures.includes(features))
+  );
+}
+
 const getRecommendations = (
   formData = { selectedPreferences: [], selectedFeatures: [], selectedRecommendationType: '' },
   products
@@ -11,20 +26,10 @@ const getRecommendations = (
     selectedRecommendationType = '',
   } = formData || {};
 
-  let filtered = products.filter(product => {
-    const productPreferences = product.preferences || [];
-    const productFeatures = product.features || [];
-
-    const hasMatchPreferences =
-      selectedPreferences.length === 0 ||
-      selectedPreferences.some(preferences => productPreferences.includes(preferences));
-
-    const hasMatchFeatures =
-      selectedFeatures.length === 0 ||
-      selectedFeatures.some(features => productFeatures.includes(features));
-
-    return hasMatchPreferences && hasMatchFeatures;
-  });
+  let filtered = products.filter(product =>
+    matchPreferences(product, selectedPreferences) &&
+    matchFeatures(product, selectedFeatures)
+  );
 
   switch (selectedRecommendationType) {
     case 'SingleProduct':
