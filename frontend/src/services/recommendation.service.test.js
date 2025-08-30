@@ -80,4 +80,17 @@ describe('recommendationService', () => {
     expect(recommendations).toHaveLength(1);
     expect(recommendations[0].name).toBe('RD Conversas');
   });
+
+  test('Retorna todos os produtos se nenhuma preferência ou feature for selecionada', () => {
+    const formData = {
+      selectedPreferences: [],
+      selectedFeatures: [],
+      selectedRecommendationType: 'MultipleProducts',
+    };
+    const recommendations = recommendationService.getRecommendations(
+      formData, 
+      mockProducts
+    );
+    expect(recommendations).toHaveLength(mockProducts.length);
+  });
 });
