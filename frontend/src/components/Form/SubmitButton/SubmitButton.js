@@ -2,7 +2,7 @@ function SubmitButton({ text }) {
   return (
     <button
       type="submit"
-      className="border-2 border-[#003D5C] w-full flex justify-center items-center gap-4 bg-white text-[#003D5C] font-semibold py-2 px-4 rounded-xl hover:bg-[#003D5C] hover:text-white transition-colors duration-200"
+      className="border-2 border-[#003D5C] w-full text-sm md:text-md lg:text-lg flex justify-center items-center gap-4 bg-white text-[#003D5C] font-semibold py-2 px-4 rounded-xl hover:bg-[#003D5C] hover:text-white transition-colors duration-200"
     >
       {text}
       <svg
