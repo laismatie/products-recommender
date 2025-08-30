@@ -23,7 +23,7 @@ function Form({ onUpdateRecommendations }) {
 
   return (
     <form
-      className="max-w-md mx-auto p-4 bg-white rounded-lg shadow-md"
+      className="p-4 border-2 border-[#00F2C9] bg-white rounded-lg"
       onSubmit={handleSubmit}
     >
       <Preferences
@@ -43,7 +43,9 @@ function Form({ onUpdateRecommendations }) {
           handleChange('selectedRecommendationType', selected)
         }
       />
-      <SubmitButton text="Obter recomendação" />
+      <div className='mx-4 md:mx-6'>
+        <SubmitButton text="Obter recomendação" />
+      </div>
     </form>
   );
 }

@@ -29,7 +29,7 @@ function Preferences({
               value={preference}
               checked={currentPreferences.includes(preference)}
               onChange={() => handlePreferenceChange(preference)}
-              className="text-blue-500"
+              className="accent-[#00F2C9] outline-[#00F2C9] hover:accent-[#80D1C8]"
             >
               {preference}
             </Checkbox>
